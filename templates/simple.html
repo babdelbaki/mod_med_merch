@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/simple.css') }}">
+</head>
+<body>
+
+
+
+<style>
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    background-color: #DFB887;
+  }
+</style>
+<header class = "header">
+    <div class="container">
+        <h1 class="logo">Modern Media Merch: Dashboard</h1>
+    </div>
+    <strong><nav>
+          <ul class="menu">
+            <li><a href="https://modernmediamerch.com">Home</a></li>
+          </ul>
+    </nav></strong>
+</header>
+
+
+
+<main class = "main">
+<style>
+  .main-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px;
+    padding: 5px;
+    height: 100%;
+    background-color: #e3e4e6;
+    color: slategray;
+  }
+</style>
+
+<div class="main-header">
+    {% for header in headers %}
+        <div class="main-header__heading">{{header}}</div>
+    {% endfor %}
+</div>
+
+
+
+<style>
+  .main-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); /* Where the magic happens */
+    grid-auto-rows: 300px;
+    grid-gap: 0px;
+    margin: 0px;
+  }
+
+  .card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px;
+    background-color: #DFB887;
+  }
+  }
+</style>
+
+<div class="main-cards">
+    {% for label, pic in pics.items() %}
+        <div class="card">
+            <figure>
+                <figcaption>{{label}}: {{pic[1]}} users</figcaption>
+                <img src='/static/{{pic[0]}}' width="100%" height = "250px">
+            </figure>
+        </div>
+    {% endfor %}
+
+</div>
+
+
+
+</main>
+
+</body>
+</html>
